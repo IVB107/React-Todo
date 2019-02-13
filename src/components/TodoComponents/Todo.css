@@ -1,0 +1,29 @@
+/* Todo Styles */
+.todo-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: darkgrey;
+    border: 1px solid white;
+    padding: 5px;
+    color: black;
+    width: 300px;
+}
+
+
+
+/* TodoForm Styles */
+
+input {
+    border: 2px solid darkolivegreen;
+    margin-right: 5px;
+}
+
+button {
+    border: 2px solid black;
+    margin: 0 5px;
+}
+
+
+
+/* TodoList Styles */
