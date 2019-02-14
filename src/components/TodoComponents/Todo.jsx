@@ -6,8 +6,10 @@ const Todo = props => {
         <div className="todo-item">
             <div>{props.name}</div>
             <div>
-                <input type="checkbox"/>
-
+                <input 
+                    type="checkbox" 
+                    onClick={() => props.toggle(props.todo.id)}
+                />
                 <button onClick={() => props.delete(props.todo.id)}>Delete</button>   
             </div>
         </div>

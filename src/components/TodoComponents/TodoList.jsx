@@ -12,6 +12,7 @@ const TodoList = props => {
                         todo={todo}
                         key={todo.id}
                         delete={props.delete}
+                        toggle={props.toggle}
                     />
                 );
             })}

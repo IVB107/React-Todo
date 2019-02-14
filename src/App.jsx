@@ -61,6 +61,17 @@ class App extends Component {
     });
   }
 
+  handleToggleComplete = itemId => {
+    this.setState({
+      todoList: this.state.todoList.map(item => {
+        if (item.id === itemId) {
+          return {...item, completed: !item.completed}
+        }
+        return item
+      })
+    });
+  }
+
   handleClearList = e => {
     e.preventDefault()
 
@@ -79,6 +90,7 @@ class App extends Component {
           <TodoList 
             todoList={this.state.todoList}
             delete={this.handleDeleteItem}
+            toggle={this.handleToggleComplete}
           />
           <TodoForm 
             name={this.state.inputText}
