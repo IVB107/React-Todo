@@ -7,7 +7,8 @@ const Todo = props => {
             <div>{props.name}</div>
             <div>
                 <input type="checkbox"/>
-                <button>Delete</button>   
+
+                <button onClick={() => props.delete(props.todo.id)}>Delete</button>   
             </div>
         </div>
     );

@@ -55,6 +55,12 @@ class App extends Component {
     })
   }
 
+  handleDeleteItem = itemId => {
+    this.setState({
+      todoList: this.state.todoList.filter(item => item.id !== itemId)
+    });
+  }
+
   handleClearList = e => {
     e.preventDefault()
 
@@ -70,7 +76,10 @@ class App extends Component {
       <div>
         <h2>Todo App</h2>
         <div>
-          <TodoList todoList={this.state.todoList}/>
+          <TodoList 
+            todoList={this.state.todoList}
+            delete={this.handleDeleteItem}
+          />
           <TodoForm 
             name={this.state.inputText}
             updateText={this.handleUpdateText}
