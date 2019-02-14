@@ -4,8 +4,11 @@ import './Todo.css';
 const Todo = props => {
     return (
         <div className="todo-item">
-            <div>{props.id}{props.name}</div>
-            <input type="checkbox"/>
+            <div>{props.name}</div>
+            <div>
+                <input type="checkbox"/>
+                <button>Delete</button>   
+            </div>
         </div>
     );
 }

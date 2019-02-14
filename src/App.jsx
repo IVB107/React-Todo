@@ -5,18 +5,18 @@ import TodoForm from './components/TodoComponents/TodoForm';
 
 const listData = [
   {
-    name: 'Go for a run',
-    key: 0,
+    name: 'Have an enchilada coma',
+    id: 1,
     completed: false
   },
   {
-    name: 'Eat 3 large pizzas',
-    key: 1,
+    name: 'Consider going outside.. maybe',
+    id: 2,
     completed: false
   },
   {
-    name: 'Livestream myself crying onto my keyboard',
-    key: 2,
+    name: 'More enchiladas',
+    id: 3,
     completed: false
   }
 ];
@@ -29,12 +29,41 @@ class App extends Component {
   constructor(){
     super();
     this.state = {
-      todoList: listData
+      todoList: listData,
+      inputText: ''
     };
   }
 
-  // Event Handlers
+  handleUpdateText = e => {
+    this.setState({
+      inputText: e.target.value
+    })
+  }
 
+  handleAddItem = e => {
+    e.preventDefault()
+
+    const newItem = {
+      name: this.state.inputText,
+      id: Date.now(),
+      completed: false
+    }
+
+    this.setState({
+      todoList: [...this.state.todoList, newItem],
+      inputText: ''
+    })
+  }
+
+  handleClearList = e => {
+    e.preventDefault()
+
+    const newState = {...this.state};
+    newState.todoList = [];
+    this.setState({
+      todoList: newState.todoList
+    })
+  }
 
   render() {
     return (
@@ -42,7 +71,12 @@ class App extends Component {
         <h2>Todo App</h2>
         <div>
           <TodoList todoList={this.state.todoList}/>
-          <TodoForm />
+          <TodoForm 
+            name={this.state.inputText}
+            updateText={this.handleUpdateText}
+            submit={this.handleAddItem}
+            clear={this.handleClearList}
+          />
         </div>
       </div>
     );
