@@ -3,23 +3,23 @@ import TodoList from './components/TodoComponents/TodoList';
 import TodoForm from './components/TodoComponents/TodoForm';
 
 
-const listData = [
-  {
-    name: 'Have an enchilada coma',
-    id: 1,
-    completed: false
-  },
-  {
-    name: 'Consider going outside.. maybe',
-    id: 2,
-    completed: false
-  },
-  {
-    name: 'More enchiladas',
-    id: 3,
-    completed: false
-  }
-];
+// const listData = [
+//   {
+//     name: 'Have an enchilada coma',
+//     id: 1,
+//     completed: false
+//   },
+//   {
+//     name: 'Consider going outside.. maybe',
+//     id: 2,
+//     completed: false
+//   },
+//   {
+//     name: 'More enchiladas',
+//     id: 3,
+//     completed: false
+//   }
+// ];
 
 class App extends Component {
   // you will need a place to store your state in this component.
@@ -29,7 +29,7 @@ class App extends Component {
   constructor(){
     super();
     this.state = {
-      todoList: listData,
+      todoList: [],
       inputText: ''
     };
   }
@@ -55,6 +55,25 @@ class App extends Component {
     })
   }
 
+  handleDeleteItem = itemId => {
+    this.setState({
+      todoList: this.state.todoList.filter(item => item.id !== itemId)
+    });
+  }
+
+  handleToggleComplete = itemId => {
+    this.setState({
+      todoList: this.state.todoList.map(item => {
+        if (item.id === itemId) {
+          return {...item, completed: !item.completed}
+        }
+        return item
+      }).sort((a, b) => {
+        return a.completed - b.completed
+      })
+    });
+  }
+
   handleClearList = e => {
     e.preventDefault()
 
@@ -70,7 +89,11 @@ class App extends Component {
       <div>
         <h2>Todo App</h2>
         <div>
-          <TodoList todoList={this.state.todoList}/>
+          <TodoList 
+            todoList={this.state.todoList}
+            delete={this.handleDeleteItem}
+            toggle={this.handleToggleComplete}
+          />
           <TodoForm 
             name={this.state.inputText}
             updateText={this.handleUpdateText}

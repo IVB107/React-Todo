@@ -6,7 +6,15 @@ const TodoList = props => {
     return (
         <div className="todo-list">
             {props.todoList.map(todo => {
-                return (<Todo name={todo.name} key={todo.id}/>);
+                return (
+                    <Todo 
+                        key={todo.id}
+                        name={todo.name} 
+                        todo={todo}
+                        delete={props.delete}
+                        toggle={props.toggle}
+                    />
+                );
             })}
         </div>
     )

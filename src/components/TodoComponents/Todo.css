@@ -10,12 +10,18 @@
     width: 400px;
 }
 
-
+.completed {
+    background-color: lightgreen;
+    text-decoration: line-through;
+}
+.hidden {
+    display: none;
+}
 
 /* TodoForm Styles */
 
 input {
-    border: 2px solid darkolivegreen;
+    border: 2px solid darkcyan;
     margin-right: 5px;
 }
 
