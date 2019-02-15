@@ -68,6 +68,8 @@ class App extends Component {
           return {...item, completed: !item.completed}
         }
         return item
+      }).sort((a, b) => {
+        return a.completed - b.completed
       })
     });
   }

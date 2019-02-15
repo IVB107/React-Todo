@@ -10,7 +10,9 @@ const Todo = props => {
                     type="checkbox" 
                     onClick={() => props.toggle(props.todo.id)}
                 />
-                <button onClick={() => props.delete(props.todo.id)}>Delete</button>   
+                <button 
+                    className={`${props.todo.completed ? null : 'hidden'}`}
+                    onClick={() => props.delete(props.todo.id)}>Delete</button>   
             </div>
         </div>
     );
