@@ -10,6 +10,11 @@
     width: 400px;
 }
 
+.completed {
+    background-color: lightgreen;
+    text-decoration: line-through;
+}
+
 
 
 /* TodoForm Styles */

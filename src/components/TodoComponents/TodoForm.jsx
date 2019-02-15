@@ -13,7 +13,7 @@ const TodoForm = (props) => {
                 placeholder="What do now?"
                 />
                 <button className="button" onClick={props.submit}>Add Item</button>
-                <button className="button" onClick={props.clear}>Clear</button>
+                <button className="button" onClick={props.clear}>Clear List</button>
             </form>
         </div>
     );

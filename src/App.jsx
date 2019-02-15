@@ -3,23 +3,23 @@ import TodoList from './components/TodoComponents/TodoList';
 import TodoForm from './components/TodoComponents/TodoForm';
 
 
-const listData = [
-  {
-    name: 'Have an enchilada coma',
-    id: 1,
-    completed: false
-  },
-  {
-    name: 'Consider going outside.. maybe',
-    id: 2,
-    completed: false
-  },
-  {
-    name: 'More enchiladas',
-    id: 3,
-    completed: false
-  }
-];
+// const listData = [
+//   {
+//     name: 'Have an enchilada coma',
+//     id: 1,
+//     completed: false
+//   },
+//   {
+//     name: 'Consider going outside.. maybe',
+//     id: 2,
+//     completed: false
+//   },
+//   {
+//     name: 'More enchiladas',
+//     id: 3,
+//     completed: false
+//   }
+// ];
 
 class App extends Component {
   // you will need a place to store your state in this component.
@@ -29,7 +29,7 @@ class App extends Component {
   constructor(){
     super();
     this.state = {
-      todoList: listData,
+      todoList: [],
       inputText: ''
     };
   }

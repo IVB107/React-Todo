@@ -3,7 +3,7 @@ import './Todo.css';
 
 const Todo = props => {
     return (
-        <div className="todo-item">
+        <div className={`todo-item ${props.todo.completed ? 'completed' : null}`}>
             <div>{props.name}</div>
             <div>
                 <input 
